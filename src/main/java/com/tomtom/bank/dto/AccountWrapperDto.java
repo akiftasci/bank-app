@@ -4,7 +4,7 @@ import com.tomtom.bank.entity.Account;
 import lombok.Getter;
 
 @Getter
-public class WrapperDto {
+public class AccountWrapperDto {
 
     Account account = new Account();
 

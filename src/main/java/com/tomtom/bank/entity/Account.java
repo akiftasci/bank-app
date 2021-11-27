@@ -27,6 +27,9 @@ public class Account {
     @Column(name = "limits")
     private float limits;
 
+    @Column(name = "balance")
+    private float balance;
+
     @Column(name = "datetime", nullable = false, updatable = false)
     @CreationTimestamp
     private LocalDateTime created;
