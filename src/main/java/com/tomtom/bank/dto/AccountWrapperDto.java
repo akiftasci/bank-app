@@ -1,14 +1,13 @@
 package com.tomtom.bank.dto;
 
-import com.tomtom.bank.entity.Account;
 import lombok.Getter;
 
 @Getter
 public class AccountWrapperDto {
 
-    Account account = new Account();
+    AccountDto account = new AccountDto();
 
-    public void setAccountDto(Account account){
+    public void setAccountDto(AccountDto account){
         this.account=account;
     }
 }

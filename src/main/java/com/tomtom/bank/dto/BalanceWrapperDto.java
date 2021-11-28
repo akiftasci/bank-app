@@ -4,9 +4,9 @@ import lombok.Getter;
 
 @Getter
 public class BalanceWrapperDto {
-    BalanceDto balanceDto = new BalanceDto();
+    BalanceDto balance = new BalanceDto();
 
-    public void setBalanceDto(BalanceDto balanceDto){
-        this.balanceDto=balanceDto;
+    public void setBalanceDto(BalanceDto balance){
+        this.balance=balance;
     }
 }

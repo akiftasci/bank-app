@@ -4,9 +4,10 @@ import lombok.Getter;
 
 @Getter
 public class DepositWrapperDto {
-    DepositDto depositDto = new DepositDto();
 
-    public void setDepositDto(DepositDto depositDto) {
-        this.depositDto = depositDto;
+    DepositDto deposit = new DepositDto();
+
+    public void setDepositDto(DepositDto deposit) {
+        this.deposit = deposit;
     }
 }
