@@ -2,15 +2,14 @@ package com.tomtom.bank.entity;
 
 
 import java.time.LocalDateTime;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,11 +34,12 @@ public class Account {
     @Column(name = "balance")
     private float balance;
 
-
     @Column(name = "datetime", nullable = false, updatable = false)
     @CreationTimestamp
     private LocalDateTime created;
 
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private List<Transactions> transactions;
 
     public Account() {
 

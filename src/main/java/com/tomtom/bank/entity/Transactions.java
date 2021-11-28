@@ -1,38 +1,36 @@
 package com.tomtom.bank.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
+@Table(name = "transactions")
 @Setter
 @Getter
-@Entity
-@Table(name = "balance")
-public class Balance {
-
+public class Transactions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "balance")
-    private float balance;
+    @Column(name = "type")
+    private String type;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_FK")
+    @Column(name = "amount")
+    private float amount;
+
+    @ManyToOne()
+    @JoinColumn(name = "account_id")
     private Account account;
 
-
-    public Balance(){
+    public Transactions(){
 
     }
-
 }
