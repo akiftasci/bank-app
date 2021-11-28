@@ -22,7 +22,7 @@ public class AccountUtil {
         return wrapperDto;
     }
 
-    private static String convertDateToString(final LocalDateTime created) {
+    public static String convertDateToString(final LocalDateTime created) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         return formatter.format(created);
     }
