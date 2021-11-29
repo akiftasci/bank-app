@@ -4,6 +4,7 @@ import com.tomtom.bank.dto.BalanceDto;
 import com.tomtom.bank.dto.BalanceWrapperDto;
 import com.tomtom.bank.entity.Account;
 import com.tomtom.bank.entity.Transactions;
+import com.tomtom.bank.exception.ApiRequestException;
 import com.tomtom.bank.repository.AccountRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +27,9 @@ public class WithdrawService {
         final Account account = accountRepository.findById(id).get();
 
         float balance = account.getBalance();
-        if(amount > balance){
-            throw new RuntimeException();
-        }
-        if (amount > account.getLimits()){
-            throw new RuntimeException();
+        final float limits = account.getLimits();
+        if (balance < limits){
+            throw new ApiRequestException("Balance is lower than limit!");
         }
         balance = balance - amount;
         account.setBalance(balance);
