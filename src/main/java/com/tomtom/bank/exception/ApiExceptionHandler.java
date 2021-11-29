@@ -14,7 +14,7 @@ public class ApiExceptionHandler {
 
         final ApiException exception = new ApiException(
             e.getMessage(),
-            e,
+            HttpStatus.BAD_REQUEST.value(),
             HttpStatus.BAD_REQUEST,
             ZonedDateTime.now()
         );
