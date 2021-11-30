@@ -20,4 +20,16 @@ public class ApiExceptionHandler {
         );
         return new ResponseEntity<>(exception, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(value = {AccountNotFoundException.class})
+    public ResponseEntity<Object> accountNotFoundException(ApiRequestException e){
+
+        final ApiException exception = new ApiException(
+            e.getMessage(),
+            HttpStatus.NOT_FOUND.value(),
+            HttpStatus.NOT_FOUND,
+            ZonedDateTime.now()
+        );
+        return new ResponseEntity<>(exception, HttpStatus.NOT_FOUND);
+    }
 }
