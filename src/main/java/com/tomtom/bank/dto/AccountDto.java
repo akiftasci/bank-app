@@ -5,11 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
 public class AccountDto  {
     Long id;
     String name;
-    float limits;
+    Float limits;
     String createdAt;
 
     public AccountDto(){

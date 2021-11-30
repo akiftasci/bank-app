@@ -10,10 +10,6 @@ public class AccountUtil {
     public static Account convertWrapperDtoToEntity(final AccountWrapperDto wrapperDto) {
         final Account account = new Account();
         account.setName(wrapperDto.getAccount().getName());
-        if(wrapperDto.getAccount().getLimits() == 0.0){
-            account.setLimits(200.0F);
-            return account;
-        }
         account.setLimits(wrapperDto.getAccount().getLimits());
         return account;
     }
