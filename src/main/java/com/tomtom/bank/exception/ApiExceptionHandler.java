@@ -22,7 +22,7 @@ public class ApiExceptionHandler {
     }
 
     @ExceptionHandler(value = {AccountNotFoundException.class})
-    public ResponseEntity<Object> accountNotFoundException(ApiRequestException e){
+    public ResponseEntity<Object> accountNotFoundException(AccountNotFoundException e){
 
         final ApiException exception = new ApiException(
             e.getMessage(),
