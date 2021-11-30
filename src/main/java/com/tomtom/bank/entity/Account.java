@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -26,6 +27,7 @@ public class Account {
     private Long id;
 
     @Column(name = "name")
+    @NotEmpty(message = "Name cant be empty!")
     private String name;
 
     @Column(name = "limits")
