@@ -19,8 +19,6 @@ public class TransactionService {
     }
 
     public List<TransactionDto> getTransactions(final Long id){
-        final TransactionWrapperDto transactionWrapperDto = new TransactionWrapperDto();
-        List<TransactionDto> transactionDtoList = new ArrayList<>();
         final Account account = accountRepository.findById(id).get();
         final List<Transactions> transactions = account.getTransactions();
 
